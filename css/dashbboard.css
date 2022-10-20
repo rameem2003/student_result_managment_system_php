@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.wrapper{
+    margin: 0;
+}
+
+.left{
+    height: 100vh;
+}
+
+.left .title h2{
+    text-transform: capitalize;
+}
+
+.right{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.right .box{
+    height: 150px;
+    width: 150px;
+}
+
+.right form{
+    width: 80%;
+    margin: 50px auto;
+    border: 2px solid black;
+}
+
+.right #add_student_info{
+    height: 100vh;
+}

@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+form{
+    width: 350px;
+    margin: 120px auto;
+    background-color: rgb(228, 211, 211);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+form input{
+    width: 100%;
+    display: block;
+}
+
+form input[type="submit"]{
+    width: 35%;
+}
+
+#adminBtn{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15%;
+}
