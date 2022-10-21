@@ -18,6 +18,54 @@
         header('location:admin-login.php');
     }
 
+    // data upload
+    if(isset($_POST['upload'])){
+        $name = $_POST['student_name'];
+        $roll = $_POST['board_roll'];
+        $regi = $_POST['regi_number'];
+        $f_name = $_POST['f_name'];
+        $m_name = $_POST['m_name'];
+        $phone = $_POST['phone'];
+        $email = $_POST['email'];
+
+        $pse_mn = $_POST['pse_mn'];
+        $pse_pn = $_POST['pse_pn'];
+        $pse_cn = $_POST['pse_cn'];
+
+        $mi_mn = $_POST['mi_mn'];
+        $mi_pn = $_POST['mi_pn'];
+        $mi_cn = $_POST['mi_cn'];
+
+        $ma_mn = $_POST['ma_mn'];
+        $ma_pn = $_POST['ma_pn'];
+        $ma_cn = $_POST['ma_cn'];
+
+        $db_mn = $_POST['db_mn'];
+        $db_pn = $_POST['db_pn'];
+        $db_cn = $_POST['db_cn'];
+
+        $wm_mn = $_POST['wm_mn'];
+        $wm_pn = $_POST['wm_pn'];
+        $wm_cn = $_POST['wm_cn'];
+
+        $es_mn = $_POST['es_mn'];
+        $es_pn = $_POST['es_pn'];
+        $es_cn = $_POST['es_cn'];
+
+        $im_mn = $_POST['im_mn'];
+        $im_pn = $_POST['im_pn'];
+        $im_cn = $_POST['im_cn'];
+
+        $upload_data_query = "INSERT INTO `semester_6th_data`(name, roll, regi, f_name, m_name, phone, email, pse_mn, pse_pn, pse_cn, mi_mn, mi_pn, mi_cn, ma_mn, ma_pn, ma_cn, db_mn, db_pn, db_cn, wm_mn, wm_pn, wm_cn, es_mn, es_pn, es_cn, im_mn, im_pn, im_cn) VALUES ('$name','$roll','$regi','$f_name','$m_name','$phone','$email','$pse_mn','$pse_pn','$pse_cn','$mi_mn','$mi_pn','$mi_cn','$ma_mn','$ma_pn','$ma_cn','$db_mn','$db_pn','$db_cn','$wm_mn','$wm_pn','$wm_cn','$es_mn','$es_pn','$es_cn','$im_mn','$im_pn','$im_cn')";
+
+
+        if(mysqli_query($conn, $upload_data_query)){
+            echo "<script> alert('Upload Successfull') </script>";
+        }else{
+            echo "<script> alert('Somthing went wrong!!!') </script>";
+        }
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -71,102 +119,105 @@
                     <h1>Basic Info</h1>
                     <div class="row my-3">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Enter Student Name">
+                            <input type="text" class="form-control" name="student_name" placeholder="Enter Student Name">
                         </div>
                     </div>
                     <div class="row my-3">
                         <div class="col">
-                          <input type="text" class="form-control" placeholder="Enter Student Board Roll:">
+                          <input type="text" class="form-control" name="board_roll" placeholder="Enter Student Board Roll:">
                         </div>
                         <div class="col">
-                          <input type="text" class="form-control" placeholder="Enter Student Registration No:">
-                        </div>
-                    </div>
-
-                    <div class="row my-3">
-                        <div class="col">
-                          <input type="text" class="form-control" placeholder="Father's Name: ">
-                        </div>
-                        <div class="col">
-                          <input type="text" class="form-control" placeholder="Mother's Name: ">
+                          <input type="text" class="form-control" name="regi_number" placeholder="Enter Student Registration No:">
                         </div>
                     </div>
 
                     <div class="row my-3">
                         <div class="col">
-                          <input type="text" class="form-control" placeholder="Phone Number: ">
+                          <input type="text" class="form-control" name="f_name" placeholder="Father's Name: ">
                         </div>
                         <div class="col">
-                          <input type="email" class="form-control" placeholder="Email: ">
+                          <input type="text" class="form-control" name="m_name" placeholder="Mother's Name: ">
+                        </div>
+                    </div>
+
+                    <div class="row my-3">
+                        <div class="col">
+                          <input type="text" class="form-control" name="phone" placeholder="Phone Number: ">
+                        </div>
+                        <div class="col">
+                          <input type="email" class="form-control" name="email" placeholder="Email: ">
                         </div>
                     </div>
 
                     <h1>Academic Info</h1>
 
                     <div class="row my-3">
-                        <table class="table table-striped table-hover table-dark">
-                            <thead>
-                                <tr>
-                                    <td>Subject</td>
-                                    <td>Midtarm Number</td>
-                                    <td>Practical Number</td>
-                                    <td>Contineous Assessment Number</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Principals of Software Engineering</td>
-                                    <td><input type="number" class="form-control" placeholder="Midtarm Number: "></td>
-                                    <td><input type="number" class="form-control" placeholder="Practical Number "></td>
-                                    <td><input type="number" class="form-control" placeholder="Contineous Assessment Number "></td>
-                                </tr>
+                        <form action="" method="post">
+                            <table class="table table-striped table-hover table-dark">
+                                <thead>
+                                    <tr>
+                                        <td>Subject</td>
+                                        <td>Midtarm Number</td>
+                                        <td>Practical Number</td>
+                                        <td>Contineous Assessment Number</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Principals of Software Engineering</td>
+                                        <td><input type="number" name="pse_mn" class="form-control" placeholder="Midtarm Number: "></td>
+                                        <td><input type="number" name="pse_pn" class="form-control" placeholder="Practical Number "></td>
+                                        <td><input type="number" name="pse_cn" class="form-control" placeholder="Contineous Assessment Number "></td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Microprocessor & Interfacing</td>
-                                    <td><input type="number" class="form-control" placeholder="Midtarm Number: "></td>
-                                    <td><input type="number" class="form-control" placeholder="Practical Number "></td>
-                                    <td><input type="number" class="form-control" placeholder="Contineous Assessment Number "></td>
-                                </tr>
+                                    <tr>
+                                        <td>Microprocessor & Interfacing</td>
+                                        <td><input type="number" name="mi_mn" class="form-control" placeholder="Midtarm Number: "></td>
+                                        <td><input type="number" name="mi_pn" class="form-control" placeholder="Practical Number "></td>
+                                        <td><input type="number" name="mi_cn" class="form-control" placeholder="Contineous Assessment Number "></td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Microcontroller Application</td>
-                                    <td><input type="number" class="form-control" placeholder="Midtarm Number: "></td>
-                                    <td><input type="number" class="form-control" placeholder="Practical Number "></td>
-                                    <td><input type="number" class="form-control" placeholder="Contineous Assessment Number "></td>
-                                </tr>
+                                    <tr>
+                                        <td>Microcontroller Application</td>
+                                        <td><input type="number" name="ma_mn" class="form-control" placeholder="Midtarm Number: "></td>
+                                        <td><input type="number" name="ma_pn" class="form-control" placeholder="Practical Number "></td>
+                                        <td><input type="number" name="ma_cn" class="form-control" placeholder="Contineous Assessment Number "></td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Microcontroller Application</td>
-                                    <td><input type="number" class="form-control" placeholder="Midtarm Number: "></td>
-                                    <td><input type="number" class="form-control" placeholder="Practical Number "></td>
-                                    <td><input type="number" class="form-control" placeholder="Contineous Assessment Number "></td>
-                                </tr>
+                                    <tr>
+                                        <td>DBMS</td>
+                                        <td><input type="number" name="db_mn" class="form-control" placeholder="Midtarm Number: "></td>
+                                        <td><input type="number" name="db_pn" class="form-control" placeholder="Practical Number "></td>
+                                        <td><input type="number" name="db_cn" class="form-control" placeholder="Contineous Assessment Number "></td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Web Mastering</td>
-                                    <td><input type="number" class="form-control" placeholder="Midtarm Number: "></td>
-                                    <td><input type="number" class="form-control" placeholder="Practical Number "></td>
-                                    <td><input type="number" class="form-control" placeholder="Contineous Assessment Number "></td>
-                                </tr>
+                                    <tr>
+                                        <td>Web Mastering</td>
+                                        <td><input type="number" name="wm_mn" class="form-control" placeholder="Midtarm Number: "></td>
+                                        <td><input type="number" name="wm_pn" class="form-control" placeholder="Practical Number "></td>
+                                        <td><input type="number" name="wm_cn" class="form-control" placeholder="Contineous Assessment Number "></td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Environmental Studies</td>
-                                    <td><input type="number" class="form-control" placeholder="Midtarm Number: "></td>
-                                    <td><input type="number" class="form-control" placeholder="Practical Number "></td>
-                                    <td><input type="number" class="form-control" placeholder="Contineous Assessment Number "></td>
-                                </tr>
+                                    <tr>
+                                        <td>Environmental Studies</td>
+                                        <td><input type="number" name="es_mn" class="form-control" placeholder="Midtarm Number: "></td>
+                                        <td><input type="number" name="es_pn" class="form-control" placeholder="Practical Number "></td>
+                                        <td><input type="number" name="es_cn" class="form-control" placeholder="Contineous Assessment Number "></td>
+                                    </tr>
 
 
-                                <tr>
-                                    <td>Industrial Management</td>
-                                    <td><input type="number" class="form-control" placeholder="Midtarm Number: "></td>
-                                    <td><input type="number" class="form-control" placeholder="Practical Number "></td>
-                                    <td><input type="number" class="form-control" placeholder="Contineous Assessment Number "></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                    <tr>
+                                        <td>Industrial Management</td>
+                                        <td><input type="number" name="im_mn" class="form-control" placeholder="Midtarm Number: "></td>
+                                        <td><input type="number" name="im_pn" class="form-control" placeholder="Practical Number "></td>
+                                        <td><input type="number" name="im_cn" class="form-control" placeholder="Contineous Assessment Number "></td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
-                        <input class="btn btn-danger" type="submit" value="Upload">
+                            <input class="btn btn-danger" name="upload" type="submit" value="Upload">
+                        </form>
+                        
                     </div>
                 </form>
             </div>
