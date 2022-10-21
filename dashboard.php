@@ -66,6 +66,11 @@
         }
     }
 
+    // total student count
+    $total_student_query = "SELECT * FROM `semester_6th_data`";
+    $run_total_student_query = mysqli_query($conn, $total_student_query);
+    $total_student = mysqli_num_rows($run_total_student_query)
+
 ?>
 
 <!DOCTYPE html>
@@ -93,7 +98,7 @@
 
             <div class="option mt-5">
                 <a class="btn btn-primary d-block my-3" href="#add_student_info">Add Student Info</a>
-                <a class="btn btn-primary d-block my-3" href="./student_list.html" target="_blank">Show Student list</a>
+                <a class="btn btn-primary d-block my-3" href="./student_list.php" target="_blank">Show Student list</a>
                 <a class="btn btn-primary d-block my-3" href="#">Search Student</a>
                 <a class="btn btn-primary d-block my-3" href="#">Add Admin</a>
             </div>
@@ -107,7 +112,7 @@
                     <div class="col-md-4">
                         <div class="box rounded-circle bg-danger d-flex justify-content-center align-items-center flex-column">
                             <p class="fw-bold">Total Student</p>
-                            <h1>100</h1>
+                            <h1><?php echo $total_student ?></h1>
                         </div>
                     </div>
                 </div>
@@ -115,7 +120,7 @@
 
             <!-- add student form -->
             <div class="form_section" id="add_student_info">
-                <form class="rounded p-3" action="">
+                <form class="rounded p-3" action="" method="POST">
                     <h1>Basic Info</h1>
                     <div class="row my-3">
                         <div class="col">
@@ -152,8 +157,7 @@
                     <h1>Academic Info</h1>
 
                     <div class="row my-3">
-                        <form action="" method="post">
-                            <table class="table table-striped table-hover table-dark">
+                        <table class="table table-striped table-hover table-dark">
                                 <thead>
                                     <tr>
                                         <td>Subject</td>
@@ -213,12 +217,9 @@
                                         <td><input type="number" name="im_cn" class="form-control" placeholder="Contineous Assessment Number "></td>
                                     </tr>
                                 </tbody>
-                            </table>
-
-                            <input class="btn btn-danger" name="upload" type="submit" value="Upload">
-                        </form>
-                        
+                        </table>
                     </div>
+                    <input class="btn btn-danger" name="upload" type="submit" value="Upload">
                 </form>
             </div>
         </div>

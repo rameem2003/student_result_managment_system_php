@@ -1,3 +1,9 @@
+<?php
+
+    include './configuration/connection.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,15 +30,30 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>451638</td>
-                    <td>Mahmood Hassan Rameem</td>
-                    <td>1502020501</td>
-                    <td>ANM Mudassir Hossain</td>
-                    <td>Nijhum Akter</td>
-                    <td>01409029641</td>
-                    <td>rameem2019@gmail.com</td>
-                </tr>
+                <?php
+
+                    $show_student_list = "SELECT * FROM `semester_6th_data`";
+                    $run_query = mysqli_query($conn, $show_student_list);
+                    if(mysqli_num_rows($run_query) > 0){
+                        while($row = mysqli_fetch_assoc($run_query)){
+                            ?>
+                                <tr>
+                                    <td><?php echo $row['roll'] ?></td>
+                                    <td><?php echo $row['name'] ?></td>
+                                    <td><?php echo $row['regi'] ?></td>
+                                    <td><?php echo $row['f_name'] ?></td>
+                                    <td><?php echo $row['m_name'] ?></td>
+                                    <td><?php echo $row['phone'] ?></td>
+                                    <td><?php echo $row['email'] ?></td>
+                                </tr>
+                            <?php
+                        }
+                    }else{
+                        echo "NO DATA FOUND";
+                    }
+
+                ?>
+
             </tbody>
         </table>
     </div>
