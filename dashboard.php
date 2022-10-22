@@ -99,17 +99,17 @@
             <div class="option mt-5">
                 <a class="btn btn-primary d-block my-3" href="#add_student_info">Add Student Info</a>
                 <a class="btn btn-primary d-block my-3" href="./student_list.php" target="_blank">Show Student list</a>
-                <a class="btn btn-primary d-block my-3" href="#">Search Student</a>
+                <a class="btn btn-primary d-block my-3" href="#search_box">Search Student</a>
                 <a class="btn btn-primary d-block my-3" href="#">Add Admin</a>
             </div>
         </div>
-        <div class="col-md-9 right">
-            <div class="head">
+        <div class="col-md-9 right position-relative">
+            <div class="position-fixed w-100 head">
                 <div class="row m-0 py-2 bg-dark text-light">
-                    <div class="col-md-8 d-flex justify-content-center align-items-center">
+                    <div class="col-md-7 d-flex justify-content-center align-items-center">
                         <h1>Computer Technology 6th Semester</h1>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <div class="box rounded-circle bg-danger d-flex justify-content-center align-items-center flex-column">
                             <p class="fw-bold">Total Student</p>
                             <h1><?php echo $total_student ?></h1>
@@ -220,6 +220,22 @@
                         </table>
                     </div>
                     <input class="btn btn-danger" name="upload" type="submit" value="Upload">
+                </form>
+            </div>
+
+            <!-- search student -->
+            <div class="search_box d-flex align-items-center justify-content-center" id="search_box">
+                <form class="bg-secondary rounded text-light p-4" action="" method="post">
+                    <h3 class="mb-3 text-center">Search Student & update data</h3>
+                    <div class="row text-center">
+                        <div class="col-md-10 p-0">
+                            <input class="form-control" type="text" name="" id="" placeholder="Search roll....">
+                        </div>
+
+                        <div class="col-md-2 p-0">
+                            <input class="btn btn-primary" type="submit" value="Search">
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

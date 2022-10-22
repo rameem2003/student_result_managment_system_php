@@ -25,6 +25,7 @@ html{
     padding: 0;
     height: 100vh;
     overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 .right .box{
@@ -39,5 +40,16 @@ html{
 }
 
 .right #add_student_info{
-    height: 100vh;
+    min-height: 100vh;
+    margin-top: 190px;
+}
+
+.right #search_box{
+    min-height: 100vh;
+    background-color: bisque;
+}
+
+.right #search_box form{
+    border: none;
+    width: 500px;
 }
