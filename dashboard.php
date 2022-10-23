@@ -69,7 +69,22 @@
     // total student count
     $total_student_query = "SELECT * FROM `semester_6th_data`";
     $run_total_student_query = mysqli_query($conn, $total_student_query);
-    $total_student = mysqli_num_rows($run_total_student_query)
+    $total_student = mysqli_num_rows($run_total_student_query);
+
+    // search student function
+    if(isset($_POST['search_roll_admin'])){
+        $student_roll = $_POST['search_roll'];
+        $search_query = "SELECT * FROM `semester_6th_data` WHERE roll = '$student_roll'";
+
+        $run_query = mysqli_query($conn, $search_query);
+
+        if(mysqli_num_rows($run_query) > 0){
+            $student_info = mysqli_fetch_assoc($run_query);
+            $_SESSION['st_info'] = $student_info['roll'];
+            header("location:view_result_admin.php");
+        }
+    }
+
 
 ?>
 
@@ -229,11 +244,11 @@
                     <h3 class="mb-3 text-center">Search Student & update data</h3>
                     <div class="row text-center">
                         <div class="col-md-10 p-0">
-                            <input class="form-control" type="text" name="" id="" placeholder="Search roll....">
+                            <input class="form-control" type="text" name="search_roll" id="" placeholder="Search roll....">
                         </div>
 
                         <div class="col-md-2 p-0">
-                            <input class="btn btn-primary" type="submit" value="Search">
+                            <input class="btn btn-primary" name="search_roll_admin" type="submit" value="Search">
                         </div>
                     </div>
                 </form>

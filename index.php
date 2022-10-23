@@ -1,3 +1,26 @@
+<?php
+    include './configuration/connection.php';
+    session_start();
+    // search student function
+    if(isset($_POST['student_query'])){
+        $student_search_index = $_POST['student_search'];
+        if($student_search_index != ""){
+            $search_query_index = "SELECT * FROM `semester_6th_data` WHERE roll = '$student_search_index'";
+
+            $run_query = mysqli_query($conn, $search_query_index);
+
+            if(mysqli_num_rows($run_query) > 0){
+                $student_info = mysqli_fetch_assoc($run_query);
+                $_SESSION['search_student'] = $student_info['roll'];
+                header("location:view_result_student.php");
+            }
+        }else{
+            echo "<script> alert('Please Enter Your Roll') </script>";
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +41,11 @@
     <form action="" method="post">
         <h4>Search your result</h4>
         <div class="input-group">
-            <input class="form-control mb-4" type="text" name="" id="" placeholder="Enter roll number: ">
+            <input class="form-control mb-4" type="text" name="student_search" id="" placeholder="Enter roll number: ">
         </div>
 
         <div class="input-group">
-            <input class="btn btn-success ms-auto" type="submit" value="Search">
+            <input class="btn btn-success ms-auto" name="student_query" type="submit" value="Search">
         </div>
     </form>
     

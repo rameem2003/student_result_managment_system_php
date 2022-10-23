@@ -1,10 +1,28 @@
+<?php
+
+    include './configuration/connection.php';
+    session_start();
+
+    $student_info = $_SESSION['st_info'];
+
+    $view_info_query = "SELECT * FROM `semester_6th_data` WHERE roll = '$student_info'";
+
+    $view_info = mysqli_query($conn, $view_info_query);
+
+    if(mysqli_num_rows($view_info) > 0){
+        $row = mysqli_fetch_assoc($view_info);
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Name</title>
+    <title><?php echo $row['name'] ?></title>
 
     <!-- bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
