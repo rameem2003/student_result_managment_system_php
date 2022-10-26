@@ -35,6 +35,9 @@
     <!-- bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- local css -->
     <link rel="stylesheet" href="./css/view_result.css">
 </head>
@@ -139,7 +142,7 @@
                         </tbody>
                 </table>
             </div>
-            <a class="btn btn-danger" href="view_result_student.php?logout=<?php echo $student_info ?>">Logout</a>
+            <a class="btn btn-danger" href="view_result_student.php?logout=<?php echo $student_info ?>"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
         </form>
     </div>
     
