@@ -203,6 +203,7 @@
             <!-- add student form -->
             <div class="form_section" id="add_student_info">
                 <form class="rounded p-3" action="" method="POST">
+                    <h1>Add Student</h1>
                     <h1>Basic Info</h1>
                     <div class="row my-3">
                         <div class="col">
@@ -304,7 +305,7 @@
                         </table>
                     </div>
                     
-                    <button type="submit" class="btn btn-danger" name="upload"><i class="fa-solid fa-upload"></i> Upload</button>
+                    <button type="submit" class="btn btn-danger" name="upload" id="uploadBtn"><i class="fa-solid fa-upload"></i> Upload</button>
                 </form>
             </div>
             <!-- add student form end-->
